@@ -63,7 +63,7 @@ public class Point {
   {
     if (lat < MIN_LATITUDE || lat > MAX_LATITUDE)
     {
-      throw new GPSException(null);
+      throw new GPSException("something to do with the latitude");
     }
 
     latitude = lat;
@@ -79,7 +79,7 @@ public class Point {
   {
     if (lon < MIN_LONGITUDE || lon > MAX_LONGITUDE)
     {
-      throw new GPSException(null);
+      throw new GPSException("something to do with the longitude");
     }
 
     longitude = lon;
@@ -93,19 +93,20 @@ public class Point {
 
   private void setElevation(double elev)
   {
-    if (elev < 0)
-    {
-      throw new GPSException(null);
-    }
+    // if (elev < 0)
+    // {
+    //   throw new GPSException("something to do with the latitude");
+    // }
 
     elevation = elev;
   }
 
   // TODO: Create a stub for toString()
-  // public String toString()
-  // {
-
-  // }
+  public String toString()
+  {
+    String pointRepresentation = String.format("(%.5f, %.5f), %.1f m", longitude, latitude, elevation);
+    return pointRepresentation;
+  }
 
   // IMPORTANT: Do not alter anything beneath this comment!
 
