@@ -15,26 +15,26 @@ import static java.lang.Math.toRadians;
  */
 public class Point {
   // Constants useful for bounds checking, etc
-
   private static final double MIN_LONGITUDE = -180.0;
   private static final double MAX_LONGITUDE = 180.0;
   private static final double MIN_LATITUDE = -90.0;
   private static final double MAX_LATITUDE = 90.0;
   private static final double MEAN_EARTH_RADIUS = 6.371009e+6;
 
-  // TODO: Create a stub for the constructor
+  // Variables for Point class
   private ZonedDateTime time;
   private double latitude;
   private double longitude;
   private double elevation;
 
+  // Stub for constructor
   public Point()
   {
     this(null, 0, 0, 0);
   }
 
-
-  public Point (ZonedDateTime t, double lat, double lon, double elev)
+  // Constructor for Point class
+  public Point (ZonedDateTime t, double lon, double lat, double elev)
   {
     setTime(t);
     setLatitude(lat);
@@ -42,66 +42,78 @@ public class Point {
     setElevation(elev);
   }
 
-  // TODO: Create a stub for getTime()
+
+  // Gets the time using the time stamp within the point class
   public ZonedDateTime getTime()
   {
     return time;
   }
 
+  // Sets the time using the time stamp within the point class
   private void setTime(ZonedDateTime t)
   {
     time = t;
   }
 
-  // TODO: Create a stub for getLatitude()
+
+  // Gets the latitude within the point class
   public Double getLatitude()
   {
     return latitude;
   }
 
+  // Sets the latitude within the point class
   private void setLatitude(double lat)
   {
+    // Error checking for latitude outside bounds
     if (lat < MIN_LATITUDE || lat > MAX_LATITUDE)
     {
-      throw new GPSException("something to do with the latitude");
+      throw new GPSException("Information for latitude exceeds bounds");
     }
 
     latitude = lat;
   }
 
-  // TODO: Create a stub for getLongitude()
+
+  // Gets the longitude within the point class
   public double getLongitude()
   {
     return longitude;
   }
 
+  // Sets the longitude within the point class
   private void setLongitude(double lon)
   {
+    // Error checking for latitude outside bounds
     if (lon < MIN_LONGITUDE || lon > MAX_LONGITUDE)
     {
-      throw new GPSException("something to do with the longitude");
+      throw new GPSException("Information for longitude exceeds bounds");
     }
 
     longitude = lon;
   }
 
-  // TODO: Create a stub for getElevation()
+
+  // Gets the elevation within the point class
   public double getElevation()
   {
     return elevation;
   }
 
+  // Sets the elevation within the point class
   private void setElevation(double elev)
   {
     elevation = elev;
   }
 
-  // TODO: Create a stub for toString()
+
+  // Outputs the correct format for a point
   public String toString()
   {
     String pointRepresentation = String.format("(%.5f, %.5f), %.1f m", longitude, latitude, elevation);
     return pointRepresentation;
   }
+  
 
   // IMPORTANT: Do not alter anything beneath this comment!
 

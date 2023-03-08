@@ -1,10 +1,12 @@
+import javafx.application.Application;
+
 /**
  * JavaFX application to plot elevations of a GPS track, for
  * the Advanced task of COMP1721 Coursework 1.
  *
- * @author YOUR NAME HERE
+ * @author Muhammad Kashif-Khan
  */
-public class PlotApplication {
+public class PlotApplication extends javafx.application.Application {
 
   // If attempting the Advanced task, implement your plotting code here.
   // You will need to modify this class definition so that it extends
