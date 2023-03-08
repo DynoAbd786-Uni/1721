@@ -93,11 +93,6 @@ public class Point {
 
   private void setElevation(double elev)
   {
-    // if (elev < 0)
-    // {
-    //   throw new GPSException("something to do with the latitude");
-    // }
-
     elevation = elev;
   }
 

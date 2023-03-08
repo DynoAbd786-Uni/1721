@@ -12,18 +12,28 @@ import java.time.ZonedDateTime;
  */
 public class Track {
   // TODO: Create a stub for the constructor
+  ArrayList<Point> Points = new ArrayList<Point>();
+
   public Track()
   {
-    throw new GPSException("location unknown");
+
   }
 
   public Track(String filename)
   {
     // Create new array list to store points
-    ArrayList<Point> Points = new ArrayList<Point>();
+    // ArrayList<Point> Points = new ArrayList<Point>();
 
     // read given file
-    Track.readFile(filename);
+    try
+    {
+      readFile(filename);
+    }
+    catch (IOException e)
+    {
+      System.err.println("File does not exist");
+    }
+
   }
 
   // TODO: Create a stub for readFile()
@@ -42,25 +52,57 @@ public class Track {
         throw new GPSException("# of values obtained from file are not 4");
       }
 
-      Point pointFromFile = new Point(ZonedDateTime.parse(values[1]), );
-      pointFromFile.latitude
+      Point pointFromFile = new Point(ZonedDateTime.parse(values[0]), Double.parseDouble(values[1]), Double.parseDouble(values[2]), Double.parseDouble(values[3]));
 
-
-      
+      add(pointFromFile);      
     }
   }
 
   // TODO: Create a stub for add()
+  public void add(Point point)
+  {
+    Points.add(point);
+  } 
 
   // TODO: Create a stub for get()
+  public Point get(int index)
+  {
+    if (index < 0 || index > Points.size() - 1)
+    {
+      throw new GPSException("index out of bounds");
+    }
+    return Points.get(index);
+  }
 
   // TODO: Create a stub for size()
+  public int size()
+  {
+    return Points.size();
+  }
 
   // TODO: Create a stub for lowestPoint()
+  public Point lowestPoint()
+  {
+    Point point = new Point();
+    return point;
+  }
 
   // TODO: Create a stub for highestPoint()
+  public Point highestPoint()
+  {
+    Point point = new Point();
+    return point;
+  }
 
   // TODO: Create a stub for totalDistance()
+  public Double totalDistance()
+  {
+    return 0.0;
+  }
 
   // TODO: Create a stub for averageSpeed()
+  public Double averageSpeed()
+  {
+    return 0.0;
+  }
 }
