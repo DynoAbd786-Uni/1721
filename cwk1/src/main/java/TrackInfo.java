@@ -33,9 +33,9 @@ public class TrackInfo {
       System.err.println("Error reading file");
       System.exit(1);
     }
-    catch (GPSException g)
+    catch (GPSException gpsErr)
     {
-      System.err.println("Problem with GPS information supplied/calculated: "+ g.getMessage());
+      System.err.println("Problem with GPS information supplied/calculated: "+ gpsErr.getMessage());
       System.exit(2);
     }
 
